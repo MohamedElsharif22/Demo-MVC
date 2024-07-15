@@ -1,0 +1,78 @@
+﻿@model IEnumerable<EmployeeViewModel>;
+
+@{
+    ViewData["Title"] = "All Employees";
+}
+
+<div class="col-md-12">
+
+    <h1>All Employees</h1>
+    <br />
+    <br />
+    <form asp-action="Index">
+        <div class="d-flex flex-row justify-content-center mb-4 ">
+            <input type="text" name="searchInput" id="searchInput" placeholder="Search..." class="form-control w-75" />
+            <input type="submit" value="Search" class="btn btn-success ml-2" />
+        </div>
+    </form>
+
+    <a asp-controller="Employee" asp-action="Create" class="btn btn-primary">Add Employee</a>
+    <hr />
+    <br />
+    <br />
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-striped table-hover table-responsive">
+            <thead>
+            <th>@Html.DisplayNameFor(E => E.Image)</th>
+            <th>@Html.DisplayNameFor(E => E.Name)</th>
+            <th>@Html.DisplayNameFor(E => E.Age)</th>
+            <th>@Html.DisplayNameFor(E => E.Salary)</th>
+            <th>@Html.DisplayNameFor(E => E.Address)</th>
+            <th>@Html.DisplayNameFor(E => E.Phone)</th>
+            <th>@Html.DisplayNameFor(E => E.Email)</th>
+            <th>@Html.DisplayNameFor(E => E.Department)</th>
+            <th>@Html.DisplayNameFor(E => E.IsActive)</th>
+            <th>@Html.DisplayNameFor(E => E.IsDeleted)</th>
+            <th>@Html.DisplayNameFor(E => E.HiringDate)</th>
+            <th>@Html.DisplayNameFor(E => E.DateOfCreation)</th>
+            <th>Details</th>
+            <th>Update</th>
+            <th>Delete</th>
+            </thead>
+            <tbody>
+                @foreach (var Emp in Model)
+                {
+                    <tr>
+                        <td>
+                            <img src="~/files/images/@Emp.ImageName" class="w-100 rounded-circle"/>
+                        </td>
+                        <td>@Emp.Name</td>
+                        <td>@Emp.Age</td>
+                        <td>@Html.DisplayFor(M => Emp.Salary)</td>
+                        <td>@Emp.Address</td>
+                        <td>@Emp.Phone</td>
+                        <td>@Html.DisplayFor(M => Emp.Email)</td>
+                        <td>@Html.DisplayFor(M => Emp.Department.Name)</td>
+                        <td>@Html.DisplayFor(M => Emp.IsActive)</td>
+                        <td>@Html.DisplayFor(M => Emp.IsDeleted)</td>
+                        <td>@Emp.HiringDate</td>
+                        <td>@Emp.DateOfCreation</td>
+                        <partial name="_CRUDBTNsPatrtialView" model="Emp.Id.ToString()" />
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-warning">
+            <h3>There No Any Employees Exist.</h3>
+        </div>
+    }
+
+
+
+</div>
+

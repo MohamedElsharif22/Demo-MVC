@@ -1,0 +1,21 @@
+﻿@model UserViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Update User Informations.</h1>
+
+<hr />
+
+<form asp-action="Edit" enctype="multipart/form-data">
+    <partial name="UserPartialViews/UserCUPartialView" />
+    <input type="submit" value="Save" class="btn btn-primary" />
+    <a  asp-action="index" class="btn btn-light">Back To List</a>
+</form>
+
+@section validationSection {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+

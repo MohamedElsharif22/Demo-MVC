@@ -1,0 +1,47 @@
+﻿@model EmployeeViewModel
+
+
+<div class="form-group">
+    <label asp-for="Name" class="control-label"></label>
+    <input asp-for="Name" readonly class="form-control" />
+</div>
+<div class="form-group">
+    <label asp-for="Age" class="control-label"></label>
+    <input asp-for="Age" readonly class="form-control" />
+</div>
+<div class="form-group">
+    <label asp-for="Salary" class="control-label"></label>
+    <input asp-for="Salary" readonly class="form-control" />
+</div>
+<div class="form-group">
+    <label asp-for="Address" class="control-label"></label>
+    <input asp-for="Address" readonly class="form-control" />
+</div>
+<div class="form-group">
+    <label asp-for="Phone" class="control-label"></label>
+    <input asp-for="Phone" readonly class="form-control" />
+</div>
+<div class="form-group">
+    <label asp-for="Email" class="control-label"></label>
+    <input asp-for="Email" readonly class="form-control" />
+</div>
+<div class="form-group">
+    <label asp-for="IsActive" class="control-label"></label>
+    <span>@Html.DisplayFor(E => E.IsActive)</span>
+</div>
+<div class="form-group">
+    <label asp-for="IsDeleted" class="control-label"></label>
+    <span>@Html.DisplayFor(E => E.IsDeleted)</span>
+</div>
+<div class="form-group">
+    <label asp-for="HiringDate" class="control-label"></label>
+    <input asp-for="HiringDate" readonly class="form-control" />
+</div>
+<div class="form-group">
+    <label asp-for="DateOfCreation" class="control-label"></label>
+    <input asp-for="DateOfCreation" readonly class="form-control" />
+</div>
+<div class="form-group">
+    <label asp-for="Image" class="control-label"></label>
+    <input asp-for="Image" readonly class="form-control" />
+</div>
